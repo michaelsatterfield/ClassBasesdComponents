@@ -7,20 +7,29 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         //only time we do direct assignment!!!
-        this.state = {lat: null};
-
+        this.state = {lat: null, errorMessage: ''};
+        //this is a call back function
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
                 //we called setState!
-                this.setState({lat: position.coords.latitude})
+                this.setState({lat: position.coords.latitude.toPrecision(4)})
             },
-            (err) => console.log(err)
+            (err) => {
+                this.setState({errorMessage: err.message})
+            }
         );
     }
-
+    //must define render in react
     render() {
+        if(this.state.errorMessage && !this.state.lat){
+            return <div> {this.state.errorMessage}</div>
+        }
 
-        return <div>Latitude: {this.state.lat}</div>
+        if (!this.state.errorMessage && this.state.lat){
+            return <div>Latitude: {this.state.lat}</div>
+        }
+
+        return <div>Loading!</div>
     }
 }
 
