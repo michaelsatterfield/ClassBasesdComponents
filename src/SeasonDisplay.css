@@ -23,3 +23,10 @@ img{
     opacity: 50%;
     z-index: -1;
 }
+
+.winter{
+    background-color: lightblue;
+}
+.summer{
+    background-color: orange;
+}
