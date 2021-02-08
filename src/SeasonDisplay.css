@@ -25,8 +25,17 @@ img{
 }
 
 .winter{
-    background-color: lightblue;
+    background-color: #aac2cd;
 }
 .summer{
     background-color: orange;
+}
+
+.season-display.winter i{
+    color: #0000ff;
+}
+
+.season-display.summer i{
+    color: yellow;
+
 }
