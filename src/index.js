@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from "./SeasonDisplay";
 import "semantic-ui-css/semantic.min.css";
+import Spinner from "./spinner";
 
 
 class App extends React.Component {
@@ -25,16 +26,27 @@ class App extends React.Component {
     // }
 
     //must define render in react
+
+   renderContent(){
+       if(this.state.errorMessage && !this.state.lat){
+           return <div> {this.state.errorMessage}</div>
+       }
+
+       if (!this.state.errorMessage && this.state.lat){
+           return <SeasonDisplay lat={this.state.lat} />
+       }
+
+       return <Spinner message="Please allow location access."/>;
+}
+
+
+
     render() {
-        if(this.state.errorMessage && !this.state.lat){
-            return <div> {this.state.errorMessage}</div>
-        }
-
-        if (!this.state.errorMessage && this.state.lat){
-            return <SeasonDisplay lat={this.state.lat} />
-        }
-
-        return
+    return (
+        <div className={"border red"}>
+            {this.renderContent()}
+        </div>
+    )
     }
 }
 
