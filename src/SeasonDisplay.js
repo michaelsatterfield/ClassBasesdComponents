@@ -1,6 +1,7 @@
 import './SeasonDisplay.css'
 import React from 'react';
 
+//****config function
 const seasonConfig = {
     summer: {
         text: "Let's hit the beach!",
@@ -14,6 +15,7 @@ const seasonConfig = {
     }
 };
 
+//*****helper function******
 const getSeason = (lat, month) => {
     if (month > 2 && month < 9) {
         return lat > 0 ? 'summer' : 'winter';
@@ -22,6 +24,7 @@ const getSeason = (lat, month) => {
     }
 }
 
+//**************functional component************
 const SeasonDisplay = (props) => {
     const season = getSeason(props.lat, new Date().getMonth());
     const {text, iconName, image} = seasonConfig[season]
@@ -31,11 +34,15 @@ const SeasonDisplay = (props) => {
             {/*<img src={image}></img>*/}
             <h1>{text}</h1>
             <i className={`icon-left massive ${iconName} icon `}/>
-
-
             <i className={`icon-right massive ${iconName} icon`}/>
 
-        </div>
+            <h2 className={"latitude"}>Its {season}time </h2>
+            <h2 className={"latitude2"}>your latitude is : {props.lat}</h2>
+            <h2 className={"longitude"}>your longitude is : {props.long}</h2>
+            <h2 className={"time"}>The time is: {props.time}</h2>
+            </div>
+
+
     )
 };
 

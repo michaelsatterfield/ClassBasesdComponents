@@ -39,3 +39,23 @@ img{
     color: yellow;
 
 }
+.latitude {
+    position: absolute;
+    bottom:3em;
+    left: 10px;
+}
+.latitude2 {
+    position: absolute;
+    bottom:2em;
+    left: 10px;
+}
+.longitude {
+    position: absolute;
+    bottom:1em;
+    left: 10px;
+}
+.time {
+    position: absolute;
+    bottom:.5em;
+    left: 10px;
+}
