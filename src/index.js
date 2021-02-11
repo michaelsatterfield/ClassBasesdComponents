@@ -9,13 +9,6 @@ import Spinner from "./spinner";
 class App extends React.Component {
     state = {lat: null, long: null, time: '',errorMessage: ''};
 
-    // constructor(props) {
-    //     super(props);
-    //     // //only time we do direct assignment!!!
-    //     // this.state = {lat: null, errorMessage: ''};
-    // }
-
-
     componentDidMount() {
         //we called setState!      //this is a call back function
         window.navigator.geolocation.getCurrentPosition(
@@ -28,8 +21,6 @@ class App extends React.Component {
 
 
     }
-
-    //must define render in react
 
 
     //helper function***********
